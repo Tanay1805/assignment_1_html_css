@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            background-image:url("images/image.gif"); 
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        form {
+            width: 50%; 
+            margin: 0 auto; 
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); 
+            border-radius: 10px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        h3 {
+            font-weight: bold;
+        }
+        button[type="submit"] {
+            width: 40%; /* Adjust width as needed */
+            padding: 10px;
+            margin: 10px auto; /* Centers the button horizontally */
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            box-align: right;
+            box-shadow: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    
+    <form action="thankyou.html" enctype="multipart/form-data" onsubmit="return ValidateEmail()">
+        <h2 style="text-align: center;">Club Registration Form</h2>
+        <label for="Username">Name</label>
+        <input type="text" id="Username" placeholder="Spongebob" minlength="6" maxlength="16"><br>
+
+        <label for="Password">Password</label>
+        <input type="password" id="Password" minlength="6" maxlength="12"><br>
+
+        <label for="Email">Email</label>
+        <input type="email" id="Email" placeholder="example@xyz.com"><br>
+
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" placeholder="+91 9876543210" pattern="{10}"><br>
+        <br>
+    
+        <label>Gender</label><br>
+        <br>
+        <input type="radio" value="Male" name="gender"><label for="Male">Male</label><br>
+        <br>
+        <input type="radio" value="Female" name="gender"><label for="Female">Female</label><br>
+        <br>
+        <input type="radio" value="LGBTQ" name="gender"><label for="LGBTQ">Other</label><br><br>
+        <h3>Which committee would you prefer to work for?</h3>
+        <select id="most-like" name="mostLike" class="form-control" required multiple>
+            <option disabled selected value>Select an option</option>
+            <option value="Social Media">Social Media</option>
+            <option value="Hackathons">Hackathons</option>
+            <option value="Start-Ups">Start-Ups</option>
+            <option value="Meetups">Meetups</option>
+            <option value="R&D">R&D</option>
+            <option value="Placements">Placements</option>
+            <option value="Sports">Sports</option>
+            <option value="Cultural">Cultural</option>
+            <option value="Fun-Activities">Fun-Activities</option>
+            <option value="Youtube Handle">Youtube Handle</option>
+
+        </select>
+        
+        <a href="thankyou.html">
+        <button type="submit">Submit</button>
+        </a>
+    </form>
+
+    <script>
+        function ValidateEmail() {
+            var regexEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            var email = document.getElementById("Email").value;
+            if (!regexEmail.test(email)) {
+                alert("Please enter a valid email address");
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>
